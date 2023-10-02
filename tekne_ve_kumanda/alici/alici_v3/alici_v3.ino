@@ -47,8 +47,8 @@ digitalWrite(ka1, LOW);
 digitalWrite(ki1, LOW);  
 digitalWrite(ka2, LOW);
 digitalWrite(ki2, LOW);
- // sg90.attach(6);    //Set servo pin at digital 6
- // sg90.write(45);
+ // my90.attach(6);    //Set servo pin at digital 6
+ // my90.write(45);
  
 delay (3000);
 
@@ -58,26 +58,26 @@ void loop()
 {
   //Read the data if available in buffer
 
-  /*
+  
  if(radio.available()){
-//radio.read( &datas , sizeof(datas));
-  /*  Serial.println(datas[0]);
-     Serial.println(datas[1]);
+radio.read( &datas , sizeof(datas));
+     Serial.println(datas[0]);
+     //Serial.println(datas[1]);
      Serial.println(datas[2]); 
       Serial.println("***************************************");
-    sg90.write(datas[1]);
-*/ /*
-    analogWrite(pwmotor1,abs());
-    analogWrite(pwmotor2,abs(a));
+  //  my90.write(datas[0]);
+
+    analogWrite(pwmotor1,datas[2]);
+    analogWrite(pwmotor2,datas[2]);
     
-    if(datas[2]>128){
+    if(datas[2]>5){
       digitalWrite(ki1, HIGH);
       digitalWrite(ka1, LOW);
       digitalWrite(ki2, HIGH);
       digitalWrite(ka2, LOW);
      
     }
-        else if(datas[2]<127){
+        else if(datas[2]<-5){
       digitalWrite(ki1, LOW); 
       digitalWrite(ka1, HIGH);
       digitalWrite(ki2, LOW);
@@ -91,7 +91,7 @@ void loop()
     }
     
     delay(100);
-}*/
+}
   /* }
    else{
   Serial.println("no connect");
@@ -119,7 +119,7 @@ void loop()
 
 
 
-    
+    /*
   digitalWrite(ki1, HIGH);
       digitalWrite(ka1, LOW);
       digitalWrite(ki2, HIGH);
@@ -128,6 +128,7 @@ void loop()
    delay(500);
    analogWrite(pwmotor2,a);
    analogWrite(pwmotor1,a);
- }
- 
+   }*/
 }
+ 
+

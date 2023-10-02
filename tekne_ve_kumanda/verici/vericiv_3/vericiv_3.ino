@@ -27,33 +27,33 @@ void setup()
   
   //Set module as transmitter
   radio.stopListening();
-  datas[0]=100;
-  datas[1]=100;
-  datas[2]=100;
-  datas[3]=100;
+  datas[0]=0;
+  datas[1]=0;
+  datas[2]=0;
+  datas[3]=0;
 }
 void loop()
 {
   //Send message to receiver
 
- datas[0] = analogRead(port1y);//sağ sol //riğht left
+ datas[0] = analogRead(port1x);//sağ sol //riğht left
  datas[0] = map(datas[0] , 0 , 1023 , 30 , 150 );
  //datas[1] = analogRead(portpot);//ince ayar motor için //fine tuning knob for motors
- datas[1] = 120;//map(datas[1] , 0 , 1023 , 0 ,250 );
+ //datas[1] = 120;//map(datas[1] , 0 , 1023 , 0 ,250 );
  datas[2] = analogRead(port1y);//ileri geri //front and back
- datas[2] = map(datas[2] , 0 , 1023 , 0, datas[1] );
- datas[3] = analogRead(port1x);
- datas[3] = map(datas[3] , 0 , 1023 , -datas[2]/3 , datas[2]/3 );
+ datas[2] = map(datas[2] , 512 , 1023 , 0, 130 );
+ //datas[3] = analogRead(port1x);
+ //datas[3] = map(datas[3] , 0 , 1023 , -datas[2]/3 , datas[2]/3 );
 radio.write(&datas , sizeof(datas) );
 
 
 
 
-
+/*
 Serial.println(datas[0]);
 Serial.println(datas[1]);
 Serial.println(datas[2]);
 Serial.println(datas[3]);
-Serial.println("---------------");
-  delay(1500);
+Serial.println("---------------");*/
+  delay(500);
 }

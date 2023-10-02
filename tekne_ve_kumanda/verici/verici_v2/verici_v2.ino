@@ -2,8 +2,8 @@
 #include <nRF24L01.h>  
 #include <RF24.h>
 
-#define CE_pin 7
-#define CSN_pin 8
+#define CE_pin 10
+#define CSN_pin 9
 
 #define portser A0 
 #define port1x A2
