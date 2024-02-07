@@ -42,7 +42,8 @@ void serialprint(){
   Serial.println(datas[2]);
   Serial.print("joystick y : ");
   Serial.println(datas[3]);
-
+  Serial.print("boolean : ");
+  Serial.println(datas[4]&&0b1111);
 
   delay(1000);
 

@@ -61,7 +61,7 @@ void loop() {
 
   manage_displayer();          // Ekrana verileri yazdır
   prepare_delivery();          // Nrf ile gönderilecek verileri hazırla
-
+  
 }
 
 void digitalpin(){
@@ -145,12 +145,12 @@ void manage_displayer(){
 
 
 void prepare_delivery(){
-  datas[0] = map( joystick1_state , 0 , 1023 , 0 , 1023 );
-  datas[1] = map( potansiyo_state , 0 , 1023 , 0 , 1023 );
-  datas[2] = map( joystick2x_state , 0 , 1023 , 1023 , 0 );
-  datas[3] = map( joystick2y_state , 0 , 1023 , 1023 , 0 );
+  datas[0] =joystick1_state; //map( joystick1_state , 0 , 1023 , 0 , 1023 ); //kamera ileri geri servo
+  datas[1] = potansiyo_state; //map( potansiyo_state , 0 , 1023 , 0 , 1023 ); //kamera sağsol 
+  datas[2] = 1023-joystick2x_state; //map( joystick2x_state , 0 , 1023 , 1023 , 0 ); //sağsol
+  datas[3] = 1023-joystick2y_state; //map( joystick2y_state , 0 , 1023 , 1023 , 0 ); //ileri geri
   datas[4] = digital_nrf_;
-
+  
  
   radio.write(&datas , sizeof(datas) );
 }
